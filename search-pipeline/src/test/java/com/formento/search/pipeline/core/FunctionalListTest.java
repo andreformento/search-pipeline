@@ -32,7 +32,7 @@ public class FunctionalListTest {
     @Test
     public void shouldGetTailFromList() {
         final List<Object> list = ImmutableList.builder().add(new Object(), new Object()).build();
-        assertThat(new FunctionalList<>(list).tail()).isNotEmpty().hasValueSatisfying(a -> is not null -> a.head());
+        assertThat(new FunctionalList<>(list).tail()).isNotEmpty();
     }
 
 }
