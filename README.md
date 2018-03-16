@@ -7,3 +7,7 @@
 ```bash
 docker-compose up --build
 ```
+
+### References
+
+- http://www.deadcoderising.com/2015-09-07-java-8-functional-composition-using-compose-and-andthen/
