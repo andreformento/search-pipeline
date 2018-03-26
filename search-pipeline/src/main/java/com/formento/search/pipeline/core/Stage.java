@@ -1,7 +1,7 @@
 package com.formento.search.pipeline.core;
 
-public interface Stage {
+public interface Stage<T> {
 
-    QueryPipeline transform(final QueryPipeline queryPipeline);
+    T transform(final T queryPipeline);
 
 }
