@@ -1,0 +1,5 @@
+rootProject.name = 'search-pipeline'
+
+include 'search-pipeline-core'
+include 'search-pipeline-core-actuator'
+

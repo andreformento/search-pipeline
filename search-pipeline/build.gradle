@@ -1,0 +1,12 @@
+apply plugin: 'java'
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+}
+
+subprojects {
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = 9
+}

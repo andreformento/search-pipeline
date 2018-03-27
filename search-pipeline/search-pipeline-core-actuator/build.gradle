@@ -1,0 +1,11 @@
+// https://github.com/spring-guides/gs-multi-module
+apply plugin: 'java'
+apply plugin : 'application'
+
+group = 'com.formento.search.core.actuator'
+
+mainClassName = 'com.formento.search.pipeline.core.actuator.PipelineTransformerFactory'
+
+dependencies {
+    compile project(':com.formento.search.core')
+}

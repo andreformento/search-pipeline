@@ -1,8 +1,10 @@
+buildscript {
+    repositories { mavenCentral() }
+}
+
 apply plugin: 'java'
 
-group = 'com.formento.search'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 9
+group = 'com.formento.search.core'
 
 repositories {
 	mavenCentral()
