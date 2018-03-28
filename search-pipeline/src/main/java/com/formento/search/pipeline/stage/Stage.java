@@ -1,4 +1,4 @@
-package com.formento.search.pipeline.core;
+package com.formento.search.pipeline.stage;
 
 public interface Stage<T> {
 

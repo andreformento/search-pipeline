@@ -1,4 +1,4 @@
-package com.formento.search.pipeline.core;
+package com.formento.search.pipeline.stage;
 
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
