@@ -6,9 +6,9 @@ import com.google.common.collect.ImmutableList;
 import org.springframework.stereotype.Component;
 
 @Component
-class SimpleQueryStageFactory {
+public class SimpleQueryStageFactory {
 
-    StageList<SimpleQuery> create() {
+    public StageList<SimpleQuery> create() {
         final ImmutableList<Stage<SimpleQuery>> stages = ImmutableList.<Stage<SimpleQuery>>builder().
                 add(qp -> new SimpleQuery(qp.getTerms().trim(), qp.getPageNumber())).
                 build();
