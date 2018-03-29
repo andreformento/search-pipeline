@@ -1,8 +1,8 @@
-package com.formento.search.pipeline.simplepipeline.repository;
+package com.formento.search.pipeline.simplepipeline.product.repository;
 
-import com.formento.search.pipeline.simplepipeline.SimpleProduct;
-import com.formento.search.pipeline.simplepipeline.SimpleProducts;
-import com.formento.search.pipeline.simplepipeline.SimpleQuery;
+import com.formento.search.pipeline.simplepipeline.product.SimpleProduct;
+import com.formento.search.pipeline.simplepipeline.product.SimpleProducts;
+import com.formento.search.pipeline.simplepipeline.product.SimpleQuery;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

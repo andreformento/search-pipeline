@@ -1,4 +1,4 @@
-package com.formento.search.pipeline.simplepipeline;
+package com.formento.search.pipeline.simplepipeline.product;
 
 import java.io.Serializable;
 

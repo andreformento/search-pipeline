@@ -1,5 +1,6 @@
-package com.formento.search.pipeline.simplepipeline;
+package com.formento.search.pipeline.simplepipeline.product;
 
+import com.formento.search.pipeline.simplepipeline.SimpleQueryStageFactory;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

@@ -1,8 +1,8 @@
-package com.formento.search.pipeline.simplepipeline.api.v1;
+package com.formento.search.pipeline.simplepipeline.product.api.v1;
 
-import com.formento.search.pipeline.simplepipeline.SimpleProduct;
-import com.formento.search.pipeline.simplepipeline.SimpleQuery;
-import com.formento.search.pipeline.simplepipeline.SimpleQueryStageService;
+import com.formento.search.pipeline.simplepipeline.product.SimpleProduct;
+import com.formento.search.pipeline.simplepipeline.product.SimpleQuery;
+import com.formento.search.pipeline.simplepipeline.product.SimpleQueryStageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;

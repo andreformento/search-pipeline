@@ -1,4 +1,4 @@
-package com.formento.search.pipeline.simplepipeline;
+package com.formento.search.pipeline.simplepipeline.product;
 
 import org.apache.commons.lang3.StringUtils;
 

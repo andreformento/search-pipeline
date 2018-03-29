@@ -1,4 +1,4 @@
-package com.formento.search.pipeline.simplepipeline;
+package com.formento.search.pipeline.simplepipeline.product;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
