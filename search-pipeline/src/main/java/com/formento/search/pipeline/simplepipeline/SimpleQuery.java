@@ -7,7 +7,7 @@ public class SimpleQuery {
     private final String terms;
     private final Integer pageNumber;
 
-    SimpleQuery(final String terms, final Integer pageNumber) {
+    public SimpleQuery(final String terms, final Integer pageNumber) {
         this.terms = terms;
         this.pageNumber = pageNumber;
     }

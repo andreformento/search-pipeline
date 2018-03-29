@@ -1,5 +1,7 @@
 package com.formento.search.pipeline.stage;
 
+import reactor.core.publisher.Mono;
+
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +14,7 @@ public final class StageList<T> {
         this.list = new LinkedList<>(list);
     }
 
-    public Optional<Stage<T>> head() {
+    Optional<Stage<T>> head() {
         if (list.isEmpty()) {
             return Optional.empty();
         } else {
@@ -20,19 +22,19 @@ public final class StageList<T> {
         }
     }
 
-    public Optional<StageList<T>> tail() {
+    Optional<StageList<T>> tail() {
         return Optional.
                 of(list).
                 filter(l -> l.size() > 1).
                 map(l -> new StageList<>(l.subList(1, l.size())));
     }
 
-    public T consume(final T value) {
+    public Mono<T> consume(final Mono<T> value) {
         return recursiveConsume(this, value);
     }
 
-    private T recursiveConsume(final StageList<T> stageList, final T value) {
-        final T nextValue = stageList.
+    private Mono<T> recursiveConsume(final StageList<T> stageList, final Mono<T> value) {
+        final Mono<T> nextValue = stageList.
                 head().
                 map(action -> action.transform(value)).
                 orElse(value);

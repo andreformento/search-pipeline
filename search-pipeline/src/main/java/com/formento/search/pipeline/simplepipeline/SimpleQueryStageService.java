@@ -2,6 +2,7 @@ package com.formento.search.pipeline.simplepipeline;
 
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @Service
 public class SimpleQueryStageService {
@@ -14,11 +15,9 @@ public class SimpleQueryStageService {
         this.simpleProducts = simpleProducts;
     }
 
-    public Flux<SimpleProduct> byQuery(final String query, Integer pageNumber) {
-        final SimpleQuery simpleQuery = simpleQueryStageFactory.
-                create().
-                consume(new SimpleQuery(query, pageNumber));
+    public Flux<SimpleProduct> byQuery(final Mono<SimpleQuery> simpleQuery) {
+        final Mono<SimpleQuery> transformedSimpleQuery = simpleQueryStageFactory.create().consume(simpleQuery);
 
-        return simpleProducts.getBy(simpleQuery);
+        return simpleProducts.getBy(transformedSimpleQuery);
     }
 }

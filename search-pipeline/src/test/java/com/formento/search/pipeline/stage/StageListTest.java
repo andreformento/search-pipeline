@@ -2,6 +2,7 @@ package com.formento.search.pipeline.stage;
 
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
+import reactor.core.publisher.Mono;
 
 import java.util.Collections;
 import java.util.List;
@@ -38,20 +39,20 @@ public class StageListTest {
 
     @Test
     public void shouldApplyTransformationsInValue() {
-        final Object queryPipelineIn = mock(Object.class);
+        final Mono<Object> queryPipelineIn = Mono.just(mock(Object.class));
         final Object queryPipelineFirstTransformation = mock(Object.class);
         final Object queryPipelineSecondTransformation = mock(Object.class);
 
         final List<Stage<Object>> transformations =
                 ImmutableList.<Stage<Object>>builder().add(
-                        queryPipeline -> queryPipelineFirstTransformation,
-                        queryPipeline -> queryPipelineSecondTransformation
+                        mono -> mono.map(queryPipeline -> queryPipelineFirstTransformation),
+                        mono -> mono.map(queryPipeline -> queryPipelineSecondTransformation)
                 ).build();
 
         final StageList stageList = new StageList<>(transformations);
         final Object result = stageList.consume(queryPipelineIn);
 
-        assertThat(result).isEqualTo(queryPipelineSecondTransformation);
+        assertThat(((Mono) result).block()).isEqualTo(queryPipelineSecondTransformation);
     }
 
 }

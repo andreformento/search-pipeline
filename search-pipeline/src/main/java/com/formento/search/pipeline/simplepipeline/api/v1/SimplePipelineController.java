@@ -1,10 +1,12 @@
 package com.formento.search.pipeline.simplepipeline.api.v1;
 
 import com.formento.search.pipeline.simplepipeline.SimpleProduct;
+import com.formento.search.pipeline.simplepipeline.SimpleQuery;
 import com.formento.search.pipeline.simplepipeline.SimpleQueryStageService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/search/simple")
@@ -22,7 +24,9 @@ class SimplePipelineController {
             @RequestParam("query") final String query,
             @RequestParam("pg") final Integer pageNumber
     ) {
-        return simpleQueryStageService.byQuery(query,pageNumber);
+        // TODO needs some refactor to use a converter
+        final Mono<SimpleQuery> simpleQuery = Mono.just(new SimpleQuery(query, pageNumber));
+        return simpleQueryStageService.byQuery(simpleQuery);
     }
 
 }
