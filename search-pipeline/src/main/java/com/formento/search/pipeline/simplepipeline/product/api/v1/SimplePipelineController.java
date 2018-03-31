@@ -9,7 +9,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/simple/search")
+@RequestMapping("/v1/simple/search")
 class SimplePipelineController {
 
     private final SimpleQueryStageService simpleQueryStageService;

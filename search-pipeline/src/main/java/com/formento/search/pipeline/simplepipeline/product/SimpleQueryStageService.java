@@ -1,6 +1,6 @@
 package com.formento.search.pipeline.simplepipeline.product;
 
-import com.formento.search.pipeline.simplepipeline.SimpleQueryStageRepository;
+import com.formento.search.pipeline.simplepipeline.SimpleManagementService;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -8,16 +8,16 @@ import reactor.core.publisher.Mono;
 @Service
 public class SimpleQueryStageService {
 
-    private final SimpleQueryStageRepository simpleQueryStageRepository;
+    private final SimpleManagementService simpleManagementService;
     private final SimpleProducts simpleProducts;
 
-    public SimpleQueryStageService(SimpleQueryStageRepository simpleQueryStageRepository, SimpleProducts simpleProducts) {
-        this.simpleQueryStageRepository = simpleQueryStageRepository;
+    public SimpleQueryStageService(SimpleManagementService simpleManagementService, SimpleProducts simpleProducts) {
+        this.simpleManagementService = simpleManagementService;
         this.simpleProducts = simpleProducts;
     }
 
     public Flux<SimpleProduct> byQuery(final Mono<SimpleQuery> simpleQuery) {
-        final Mono<SimpleQuery> transformedSimpleQuery = simpleQueryStageRepository.
+        final Mono<SimpleQuery> transformedSimpleQuery = simpleManagementService.
                 getStageList().
                 flatMap(sl -> sl.consume(simpleQuery));
 

@@ -1,6 +1,5 @@
 package com.formento.search.pipeline.simplepipeline.management;
 
-import com.formento.search.pipeline.simplepipeline.SimpleQueryStageRepository;
 import com.formento.search.pipeline.simplepipeline.product.SimpleQuery;
 import com.formento.search.pipeline.stage.Stage;
 import com.formento.search.pipeline.stage.StageList;
@@ -16,11 +15,11 @@ import java.util.stream.Stream;
 
 @Component
 @CacheConfig(cacheNames = "simpleQueryStageCache")
-class SimpleQueryStageStaticRepository implements SimpleQueryStageRepository {
+class SimpleQueryStageRepository {
 
     private Mono<StageList<SimpleQuery>> stageList;
 
-    SimpleQueryStageStaticRepository() {
+    SimpleQueryStageRepository() {
         // TODO refactor, factory
         this.stageList = Flux.
                 fromStream(Stream.<Stage<SimpleQuery>>builder().
@@ -31,15 +30,14 @@ class SimpleQueryStageStaticRepository implements SimpleQueryStageRepository {
                 map(StageList::new);
     }
 
-    @Override
     @Cacheable
-    public Mono<StageList<SimpleQuery>> getStageList() {
+    Mono<StageList<SimpleQuery>> getStageList() {
         return stageList;
     }
 
-    @Override
     @CacheEvict(allEntries = true)
-    public void updateStages(final Flux<Stage<SimpleQuery>> stages) {
+    void updateStages(final Flux<Stage<SimpleQuery>> stages) {
+        // TODO refactor, factory
         this.stageList = stages.
                 reduce(ImmutableList.<Stage<SimpleQuery>>builder(), ImmutableList.Builder::add).
                 map(ImmutableList.Builder::build).
