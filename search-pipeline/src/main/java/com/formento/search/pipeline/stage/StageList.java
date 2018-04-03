@@ -10,7 +10,7 @@ public final class StageList<T> {
 
     private final LinkedList<Stage<T>> list;
 
-    public StageList(final List<Stage<T>> list) {
+    public StageList(final List<? extends Stage<T>> list) {
         this.list = new LinkedList<>(list);
     }
 

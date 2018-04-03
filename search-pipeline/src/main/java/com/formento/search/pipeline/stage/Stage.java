@@ -4,6 +4,6 @@ import reactor.core.publisher.Mono;
 
 public interface Stage<T> {
 
-    Mono<T> transform(final Mono<T> queryPipeline);
+    Either<Mono<T>, Mono<Stage<T>>> transform(final Mono<T> value);
 
 }
