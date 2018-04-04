@@ -1,8 +1,14 @@
 package com.formento.search.pipeline.recursionpipeline;
 
-public interface RecursionPipeline {
+import reactor.core.publisher.Mono;
 
-    SearchResult transform(final SearchRequest searchRequest);
+public class RecursionPipeline {
+
+    public Mono<SearchResult> transform(final Mono<SearchRequest> searchRequest) {
+        final Mono<SearchRequest> transform = searchRequest.transform(a -> a);
+        transform.subscribe();
+        return null;
+    }
 
 }
 
