@@ -1,13 +1,11 @@
-package com.formento.search.pipeline.simplepipeline;
+package com.formento.search.pipeline.flowpipeline;
 
-import java.io.Serializable;
-
-public class SimpleProduct implements Serializable {
+public class Product {
 
     private final String id;
     private final String title;
 
-    public SimpleProduct(String id, String title) {
+    public Product(String id, String title) {
         this.id = id;
         this.title = title;
     }
