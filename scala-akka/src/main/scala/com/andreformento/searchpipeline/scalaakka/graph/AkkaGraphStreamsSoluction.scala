@@ -1,6 +1,7 @@
-package com.andreformento.searchpipeline.scalaakka
+package com.andreformento.searchpipeline.scalaakka.graph
 
-object ScalaLambdaSoluction extends App {
+// https://doc.akka.io/docs/akka/current/stream/stream-graphs.html
+object AkkaGraphStreamsSoluction extends App {
 
   val step1: Request => FirstStepResult = (r: Request) => {
     println("First step")

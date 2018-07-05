@@ -3,12 +3,14 @@ plugins {
 }
 
 dependencies {
-    compile 'org.scala-lang:scala-library:2.11.8'
+    compile 'org.scala-lang:scala-library:2.12.6'
+    compile 'com.typesafe.akka:akka-stream_2.12:2.5.13'
+    compile 'org.scalaz:scalaz-core_2.12:7.2.25'
 
     testCompile 'junit:junit:4.12'
-    testCompile 'org.scalatest:scalatest_2.11:3.0.5'
+    testCompile 'org.scalatest:scalatest_2.12:3.0.5'
 
-    testRuntime 'org.scala-lang.modules:scala-xml_2.11:1.0.6'
+    testRuntime 'org.scala-lang.modules:scala-xml_2.12:1.0.6'
 }
 
 repositories {
